@@ -43,7 +43,8 @@ router.beforeEach(async function (to, from, next) {
     );
     const responseData = await response.json();
     const userRole = responseData.role;
-    if (userRole === 'user') {
+    console.log(responseData);
+    if (userRole === 'user' || responseData.error) {
       // redirect
       next('/notFound');
     }

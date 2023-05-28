@@ -30,6 +30,7 @@ export default {
     },
     logOut() {
       localStorage.removeItem('token');
+      this.$store.state.userRole = '';
       this.$router.go();
     },
     async getUserName(token) {

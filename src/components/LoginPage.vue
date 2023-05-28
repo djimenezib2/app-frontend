@@ -55,6 +55,7 @@ export default {
         this.validity = responseData.status;
       } else {
         localStorage.token = responseData.token;
+        this.$store.state.userRole = responseData.data.user.role;
         this.$router.push({ path: '/licitaciones' });
       }
     },
