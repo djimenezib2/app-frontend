@@ -8,7 +8,12 @@
       </div>
       <div class="form-control">
         <label for="password">Your Password</label>
-        <input id="password" class="password" type="text" v-model="password" />
+        <input
+          id="password"
+          class="password"
+          type="password"
+          v-model="password"
+        />
       </div>
       <div>
         <button>Login</button>
