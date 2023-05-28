@@ -1,7 +1,10 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <h3 v-if="isLogged">Bienvenido {{ userName }}</h3>
+    <div v-if="isLogged">
+      <h3>Bienvenido {{ userName }}</h3>
+      <button @click="logOut">Log out</button>
+    </div>
     <button v-else @click="goToLogin">Log In</button>
   </header>
 </template>
@@ -24,6 +27,10 @@ export default {
         this.isLogged = true;
         this.getUserName(localStorage.token);
       }
+    },
+    logOut() {
+      localStorage.removeItem('token');
+      this.$router.go();
     },
     async getUserName(token) {
       const requestOptions = {
@@ -53,6 +60,10 @@ header {
   align-items: center;
   background-color: #008d94;
   color: #eeeeee;
+}
+
+h3 {
+  display: inline-flex;
 }
 
 button {
