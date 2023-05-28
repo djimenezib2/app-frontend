@@ -34,7 +34,7 @@ export default {
       const totalFrames = Math.ceil(duration / (1000 / frameRate));
       const increment = Math.ceil(newVal / totalFrames);
 
-      let count = 0;
+      let count = this.currentCount;
       const interval = setInterval(() => {
         count += increment;
         if (count >= newVal) {

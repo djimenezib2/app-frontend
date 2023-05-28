@@ -4,7 +4,7 @@
     <ul>
       <li v-for="error in errors" :key="error.id">
         <p>
-          Status: {{ error.status }}; Error: {{ error.message }}; Status Code:
+          Error: {{ error.message }}; Status Code:
           {{ error.statusCode }}
         </p>
       </li>
