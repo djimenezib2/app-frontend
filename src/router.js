@@ -3,6 +3,7 @@ import store from './main.js';
 
 import TendersList from './components/TendersList';
 import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 import AdminPage from './components/AdminPage';
 import NotFoundPage from './components/NotFoundPage';
 
@@ -16,6 +17,7 @@ const router = createRouter({
       meta: { needsAuth: false },
     },
     { path: '/login', component: LoginPage, meta: { needsAuth: false } },
+    { path: '/signup', component: SignUpPage, meta: { needsAuth: false } },
     { path: '/admin', component: AdminPage, meta: { needsAuth: true } },
     { path: '/notFound', component: NotFoundPage, meta: { needsAuth: false } },
     { path: '/:notFound(.*)', redirect: '/licitaciones' },

@@ -1,17 +1,21 @@
 <template>
   <div>
     <form @submit.prevent="submitForm">
-      <h1>Login</h1>
+      <h1>Sign Up</h1>
       <div class="form-control">
-        <label for="email"> Your Email</label>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" v-model="name" />
+      </div>
+      <div class="form-control">
+        <label for="email">Email</label>
         <input id="email" name="email" type="text" v-model="email" />
       </div>
       <div class="form-control">
-        <label for="password">Your Password</label>
-        <input id="password" class="password" type="text" v-model="password" />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="text" v-model="password" />
       </div>
       <div>
-        <button>Login</button>
+        <button>Sign Up</button>
       </div>
       <div v-if="validity === 'fail'" class="error-message">
         {{ errorMessage }}
@@ -24,6 +28,7 @@
 export default {
   data() {
     return {
+      name: '',
       email: '',
       password: '',
       validity: 'pending',
@@ -36,6 +41,7 @@ export default {
       this.validity = 'pending';
 
       const data = {
+        name: this.name,
         email: this.email,
         password: this.password,
       };
@@ -45,12 +51,12 @@ export default {
         body: JSON.stringify(data),
       };
       const response = await fetch(
-        'http://127.0.0.1:3000/v1/users/login',
+        'http://127.0.0.1:3000/v1/users/signup',
         requestOptions
       );
       const responseData = await response.json();
 
-      if (responseData.status === 'fail') {
+      if (responseData === 'fail') {
         this.errorMessage = responseData.message;
         this.validity = responseData.status;
       } else {
