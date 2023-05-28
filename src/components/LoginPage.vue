@@ -21,12 +21,21 @@
       <div v-if="validity === 'fail'" class="error-message">
         {{ errorMessage }}
       </div>
+      <h4>
+        Don't have an account yet?
+        <router-link :to="signUpPage">Create a new account</router-link>
+      </h4>
     </form>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    signUpPage() {
+      return '/signup';
+    },
+  },
   data() {
     return {
       email: '',
