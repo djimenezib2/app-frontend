@@ -1,70 +1,72 @@
 <template>
   <div>
-    <the-header title="Admin Site"></the-header>
-    <div id="superadmin" v-if="$store.state.userRole === 'superadmin'">
-      <runnable-list title="Últimos rastreadores ejecutados"></runnable-list>
-      <error-list title="Errores recientes en la plataforma"></error-list>
-    </div>
-    <hr class="solid" v-if="$store.state.userRole === 'superadmin'" />
-    <div id="tenders">
-      <div class="tenders1">
+    <the-header />
+    <div class="container">
+      <div class="superadmin-container" v-if="userRole === 'superadmin'">
+        <runnable-list />
+        <error-list />
+      </div>
+      <hr class="solid" v-if="userRole === 'superadmin'" />
+      <div id="tenders">
+        <div class="tenders1">
+          <info-card
+            title="Licitaciones totales"
+            :data="this.totalTenders"
+          ></info-card>
+          <info-card
+            title="Licitaciones recogidas en el último día"
+            :data="this.lastTenders"
+          ></info-card>
+        </div>
+        <div class="tenders2">
+          <info-card
+            title="Licitaciones del BOE"
+            :data="this.tendersBOE"
+          ></info-card>
+          <info-card
+            title="Licitaciones de Contratación del Estado"
+            :data="this.tendersCDE"
+          ></info-card>
+          <info-card
+            title="Licitaciones de Contratos Menores"
+            :data="this.tendersCM"
+          ></info-card>
+          <info-card
+            title="Licitaciones del DRE"
+            :data="this.tendersDRE"
+          ></info-card>
+          <info-card
+            title="Licitaciones del TED"
+            :data="this.tendersTED"
+          ></info-card>
+        </div>
+      </div>
+      <hr class="solid" />
+      <div id="organizaciones">
         <info-card
-          title="Licitaciones totales"
-          :data="this.totalTenders"
+          title="Organizaciones registradas"
+          :data="this.totalOrganizations"
         ></info-card>
         <info-card
-          title="Licitaciones recogidas en el último día"
-          :data="this.lastTenders"
+          title="Organizaciones contratantes"
+          :data="this.contractingOrganizations"
+        ></info-card>
+        <info-card
+          title="Organizaciones adjudicatarias"
+          :data="this.bidderOrganizations"
         ></info-card>
       </div>
-      <div class="tenders2">
+      <hr class="solid" />
+      <div id="users">
         <info-card
-          title="Licitaciones del BOE"
-          :data="this.tendersBOE"
+          title="Usuarios registrados"
+          :data="this.totalUsers"
         ></info-card>
         <info-card
-          title="Licitaciones de Contratación del Estado"
-          :data="this.tendersCDE"
-        ></info-card>
-        <info-card
-          title="Licitaciones de Contratos Menores"
-          :data="this.tendersCM"
-        ></info-card>
-        <info-card
-          title="Licitaciones del DRE"
-          :data="this.tendersDRE"
-        ></info-card>
-        <info-card
-          title="Licitaciones del TED"
-          :data="this.tendersTED"
+          title="Usuarios registrados en el último día"
+          :data="this.lastUsers"
         ></info-card>
       </div>
-    </div>
-    <hr class="solid" />
-    <div id="organizaciones">
-      <info-card
-        title="Organizaciones registradas"
-        :data="this.totalOrganizations"
-      ></info-card>
-      <info-card
-        title="Organizaciones contratantes"
-        :data="this.contractingOrganizations"
-      ></info-card>
-      <info-card
-        title="Organizaciones adjudicatarias"
-        :data="this.bidderOrganizations"
-      ></info-card>
-    </div>
-    <hr class="solid" />
-    <div id="users">
-      <info-card
-        title="Usuarios registrados"
-        :data="this.totalUsers"
-      ></info-card>
-      <info-card
-        title="Usuarios registrados en el último día"
-        :data="this.lastUsers"
-      ></info-card>
     </div>
   </div>
 </template>
@@ -255,6 +257,11 @@ export default {
         });
     },
   },
+  computed: {
+    userRole() {
+      return this.$store.state.userRole 
+    }
+  },
   mounted() {
     this.loadInfo();
   },
@@ -262,14 +269,24 @@ export default {
 </script>
 
 <style scoped>
-hr.solid {
-  border-top: 3px solid #393e46;
+.container {
+  background-color: #3c3b41;
 }
+
+hr.solid {
+  border-top: 1px solid #a7a7ac;
+}
+
+.superadmin-container {
+  display: flex;
+  justify-content: center;
+}
+
 .tenders1,
 .tenders2,
 #organizaciones,
-#users,
-#superadmin {
-  display: inline-flex;
+#users {
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -1,13 +1,23 @@
 <template>
-  <div>
-    <the-header title="Not Found"></the-header>
-    <h2>Not found page hehe</h2>
+   <div class="notFound-container">
+    <h1>404</h1>
+    <p>Página no encontrada</p>
   </div>
 </template>
 
-<script>
-import TheHeader from './TheHeader.vue';
-export default {
-  components: { TheHeader },
-};
-</script>
+<style scoped>
+.notFound-container {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+h1 {
+  font-size: 5em;
+  color: #a7a7ac;
+}
+
+p {
+  font-size: 1.5em;
+  color: #c4c3c1;
+}
+</style>

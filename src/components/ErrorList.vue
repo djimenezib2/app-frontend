@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <h2>{{ title }}</h2>
+  <div class="errors-container">
+    <h2 style="color: #a7a7ac">Errores recientes en la plataforma</h2>
     <ul>
       <li v-for="error in errors" :key="error.id">
-        <p>
+        <p style="color: #e82766">
           Error: {{ error.message }}; Status Code:
           {{ error.statusCode }}
         </p>
@@ -47,22 +47,24 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 2rem auto;
+.errors-container {
+  margin: 2rem;
+  max-width: 40rem;
   /* width: 30rem; */
-  width: fit-content;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(238, 238, 238, 0.26);
-  background-color: #393e46;
+  background-color: #313035;
 }
 
 ul {
   padding: 0;
-  list-style-type: none;
+  list-style-type: disc;
+  /* list-style-type: none; */
+  /* list-style: inside; */
 }
 
 li {
-  border: solid 1px;
+  display: flex;
+  align-items: center;
 }
 </style>

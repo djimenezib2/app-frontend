@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="card-container">
     <ul>
       <li>
-        <h2>{{ title }}</h2>
+        <h2 style="color: #a7a7ac">{{ title }}</h2>
         <h3>
-          <span v-if="counting">{{ currentCount }}</span>
-          <span v-else>{{ data }}</span>
+          <p v-if="counting" style="color: #c4c3c1; font-size: 1.4rem">{{ currentCount }}</p>
+          <p v-else style="color: #c4c3c1; font-size: 1.4rem">{{ data }}</p>
         </h3>
       </li>
     </ul>
@@ -50,16 +50,23 @@ export default {
 </script>
 
 <style scoped>
-li {
-  margin: 2rem auto;
+.card-container {
+  margin: 2rem;
   /* width: 30rem; */
-  width: fit-content;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(238, 238, 238, 0.26);
-  background-color: #393e46;
+  background-color: #313035;
 }
+
 ul {
+  padding: 0;
+  list-style-type: disc;
   list-style-type: none;
+  text-align: center;
+  /* list-style: inside; */
+}
+
+li {
+  align-items: center;
 }
 </style>

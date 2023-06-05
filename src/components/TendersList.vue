@@ -1,7 +1,7 @@
 <template>
   <div>
-    <the-header title="Últimas Licitaciones"></the-header>
-    <div class="container">
+    <the-header />
+    <!-- <div class="container">
       <button @click="login('user@edu.tecnocampus.cat', 'user1234')">
         Log in as User
       </button>
@@ -13,17 +13,17 @@
       >
         Log in as SuperAdmin
       </button>
-    </div>
+    </div> -->
     <div class="container">
       <ul id="tenderList">
         <li v-for="tender in tenders" :key="tender.name">
           <div class="head">
-            <h2>{{ tender.expedient }}</h2>
-            <h2 v-if="tender.value">{{ tender.value }}</h2>
+            <h2 style="color: #a7a7ac">{{ tender.expedient }}</h2>
+            <h2 v-if="tender.value" style="color: #44b188">{{ tender.value }}</h2>
           </div>
-          <h3 class="type">{{ tender.contractType }}</h3>
-          <h3 class="organization">{{ tender.contractingOrganization }}</h3>
-          <p class="text">{{ tender.name }}</p>
+          <h3 class="type" style="color: #c4c3c1">{{ tender.contractType }}</h3>
+          <h3 class="organization" style="color: #c4c3c1">{{ tender.contractingOrganization }}</h3>
+          <p class="text" style="color: #c4c3c1">{{ tender.name }}</p>
         </li>
       </ul>
     </div>
@@ -106,6 +106,7 @@ export default {
 .container {
   justify-content: center;
   display: flex;
+  background-color: #3c3b41;
 }
 #tenderList {
   list-style-type: none;
@@ -115,8 +116,8 @@ li {
   width: 40rem;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.26);
-  background-color: #2b2b2b;
+  /* box-shadow: 0 2px 8px rgba(255, 255, 255, 0.26); */
+  background-color: #313035;
 }
 .head {
   display: flex;

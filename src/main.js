@@ -1,13 +1,25 @@
-import { createApp } from 'vue';
-import { createStore } from 'vuex';
+import { createApp } from "vue";
+import { createStore } from "vuex";
 
-import App from './App.vue';
-import router from './router.js';
+import App from "./App.vue";
+import router from "./router.js";
+
+/* import the fontawesome core */
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* import specific icons */
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+/* add icons to the library */
+library.add(fas);
 
 const store = createStore({
   state() {
     return {
-      userRole: '',
+      userRole: "",
     };
   },
 });
@@ -18,6 +30,8 @@ app.use(store);
 
 app.use(router);
 
-app.mount('#app');
+app.component("font-awesome-icon", FontAwesomeIcon);
+
+app.mount("#app");
 
 export default store;
