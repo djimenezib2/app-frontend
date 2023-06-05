@@ -1,28 +1,19 @@
 <template>
   <div>
     <the-header />
-    <!-- <div class="container">
-      <button @click="login('user@edu.tecnocampus.cat', 'user1234')">
-        Log in as User
-      </button>
-      <button @click="login('admin@edu.tecnocampus.cat', 'admin1234')">
-        Log in as Admin
-      </button>
-      <button
-        @click="login('superadmin@edu.tecnocampus.cat', 'superadmin1234')"
-      >
-        Log in as SuperAdmin
-      </button>
-    </div> -->
     <div class="container">
       <ul id="tenderList">
         <li v-for="tender in tenders" :key="tender.name">
           <div class="head">
             <h2 style="color: #a7a7ac">{{ tender.expedient }}</h2>
-            <h2 v-if="tender.value" style="color: #44b188">{{ tender.value }}</h2>
+            <h2 v-if="tender.value" style="color: #44b188">
+              {{ tender.value }}
+            </h2>
           </div>
           <h3 class="type" style="color: #c4c3c1">{{ tender.contractType }}</h3>
-          <h3 class="organization" style="color: #c4c3c1">{{ tender.contractingOrganization }}</h3>
+          <h3 class="organization" style="color: #c4c3c1">
+            {{ tender.contractingOrganization }}
+          </h3>
           <p class="text" style="color: #c4c3c1">{{ tender.name }}</p>
         </li>
       </ul>
@@ -116,7 +107,6 @@ li {
   width: 40rem;
   padding: 1rem;
   border-radius: 12px;
-  /* box-shadow: 0 2px 8px rgba(255, 255, 255, 0.26); */
   background-color: #313035;
 }
 .head {

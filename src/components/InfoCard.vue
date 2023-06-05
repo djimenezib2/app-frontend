@@ -4,7 +4,9 @@
       <li>
         <h2 style="color: #a7a7ac">{{ title }}</h2>
         <h3>
-          <p v-if="counting" style="color: #c4c3c1; font-size: 1.4rem">{{ currentCount }}</p>
+          <p v-if="counting" style="color: #c4c3c1; font-size: 1.4rem">
+            {{ currentCount }}
+          </p>
           <p v-else style="color: #c4c3c1; font-size: 1.4rem">{{ data }}</p>
         </h3>
       </li>
@@ -52,7 +54,6 @@ export default {
 <style scoped>
 .card-container {
   margin: 2rem;
-  /* width: 30rem; */
   padding: 1rem;
   border-radius: 12px;
   background-color: #313035;
@@ -63,7 +64,6 @@ ul {
   list-style-type: disc;
   list-style-type: none;
   text-align: center;
-  /* list-style: inside; */
 }
 
 li {

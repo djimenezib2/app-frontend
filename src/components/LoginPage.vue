@@ -15,7 +15,7 @@
           v-model="password"
         />
       </div>
-      <div>
+      <div style="display: flex; justify-content: center">
         <button>Login</button>
       </div>
       <div v-if="validity === 'fail'" class="error-message">
@@ -83,9 +83,8 @@ form {
   max-width: 40rem;
   width: fit-content;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.26);
   padding: 2rem;
-  background-color: #2b2b2b;
+  background-color: #313035;
 }
 
 .form-control {
@@ -109,18 +108,20 @@ input {
 
 button {
   font: inherit;
-  border: 1px solid #0076bb;
-  background-color: #0076bb;
-  color: white;
+  font-size: 1rem;
+  background-color: #e82766;
+  border: 1px solid #e82766;
   cursor: pointer;
-  padding: 0.75rem 2rem;
-  border-radius: 30px;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  color: #dfdde6;
+  margin-top: 1rem;
 }
 
 button:hover,
 button:active {
-  border-color: #002350;
-  background-color: #002350;
+  transform: scale(1.1);
 }
 
 .error-message {

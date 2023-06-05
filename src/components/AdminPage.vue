@@ -259,8 +259,8 @@ export default {
   },
   computed: {
     userRole() {
-      return this.$store.state.userRole 
-    }
+      return this.$store.state.userRole;
+    },
   },
   mounted() {
     this.loadInfo();

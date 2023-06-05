@@ -50,7 +50,6 @@ export default {
 .errors-container {
   margin: 2rem;
   max-width: 40rem;
-  /* width: 30rem; */
   padding: 1rem;
   border-radius: 12px;
   background-color: #313035;
@@ -59,8 +58,6 @@ export default {
 ul {
   padding: 0;
   list-style-type: disc;
-  /* list-style-type: none; */
-  /* list-style: inside; */
 }
 
 li {
